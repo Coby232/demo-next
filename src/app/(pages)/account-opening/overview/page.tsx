@@ -13,7 +13,7 @@ const overview = [
     {
         title: "Personal Account",
         description: "Manage your personal finances with ease by opening an account.",
-        link: "/account-opening/personal-account/person-info",
+        link: "/account-opening/personal-account/personal-info",
     },
     {
         title: "Financial Insights",
