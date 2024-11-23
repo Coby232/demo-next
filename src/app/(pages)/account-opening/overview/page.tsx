@@ -8,12 +8,12 @@ const overview = [
     {
         title: "Business Account",
         description: "Open a business account today on our platform to manage finances efficiently.",
-        link: "#",
+        link: "/account-opening/business-account",
     },
     {
         title: "Personal Account",
         description: "Manage your personal finances with ease by opening an account.",
-        link: "/account-opening/personal-account",
+        link: "/account-opening/personal-account/person-info",
     },
     {
         title: "Financial Insights",
