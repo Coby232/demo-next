@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Formik, Field, Form, ErrorMessage, FormikHelpers } from "formik";
 import { auth } from "@/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import axios from "axios";
+import { usePathname } from 'next/navigation';
 
 interface LoginValues {
   email: string;
@@ -13,8 +15,9 @@ interface LoginValues {
 }
 
 const LoginPage: React.FC = () => {
-  // const isSubmitting = useState<boolean>(false);
+
   const router = useRouter();
+
   const handleLogin = (email: string, password: string) => {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
@@ -26,6 +29,32 @@ const LoginPage: React.FC = () => {
         router.push("/auth/login");
       });
   };
+
+  const pathname = usePathname();
+
+  const pageTitle = pathname.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) || '';
+  
+  const tracker_id = document.cookie
+  .split("; ")
+  .find((row) => row.startsWith("tracker_id="))
+  ?.split("=")[1];
+  
+  useEffect(() => {
+    const trackData = {
+      tracker_id: tracker_id,
+      // tracker_id:"950d699d-b8be-419e-ad86-f3bf4e661a08", --for testing
+      step_name: pageTitle,
+      isComplete:  false,
+    };
+
+
+    axios
+      .post("https://ef4d-154-161-165-23.ngrok-free.app/track", trackData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })})
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-50">
       <div className="w-full max-w-md p-8 bg-white shadow-md rounded-lg">

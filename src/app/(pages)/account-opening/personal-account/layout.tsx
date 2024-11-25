@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Field, Form, ErrorMessage, FormikHelpers } from 'formik';
 import { usePathname } from 'next/navigation';
 import axios from "axios";
@@ -14,18 +14,19 @@ const PersonalAccountOpeningLayout = ({
   const pathname = usePathname();
 
   const pageTitle = pathname.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) || '';
-  
+  const tracker_id = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith("tracker_id="))
+    ?.split("=")[1];
+    
   useEffect(() => {
     const trackData = {
-      // tracker_id: document.cookie
-      //   .split("; ")
-      //   .find((row) => row.startsWith("tracker_id="))
-      //   ?.split("=")[1],
-      tracker_id:"950d699d-b8be-419e-ad86-f3bf4e661a08",
+      tracker_id: tracker_id,
+      // tracker_id:"950d699d-b8be-419e-ad86-f3bf4e661a08", --for testing
       step_name: pageTitle,
-      isComplete: pathname.includes("review-and-submit")?true:false,
+      isComplete: pathname.includes("review-and-submit") ? true : false,
     };
-    
+
 
     axios
       .post("https://ef4d-154-161-165-23.ngrok-free.app/track", trackData, {
@@ -33,28 +34,28 @@ const PersonalAccountOpeningLayout = ({
           "Content-Type": "application/json",
         },
       })
-      // .then((
-        
-      // ) => {
-      //   console.log("Tracking data sent successfully:");
-      // })
-      // .catch((error) => {
-      //   if (error.response) {
-         
-      //     console.error(
-      //       "Failed to track step:",
-      //       error.response.status,
-      //       error.response.statusText
-      //     );
-      //   } else if (error.request) {
-       
-      //     console.error("No response received from server:", error.request);
-      //   } else {
-      
-      //     console.error("Error sending tracking data:", error.message);
-      //   }
-      // });
-  }, [pathname, pageTitle]); 
+    // .then((
+
+    // ) => {
+    //   console.log("Tracking data sent successfully:");
+    // })
+    // .catch((error) => {
+    //   if (error.response) {
+
+    //     console.error(
+    //       "Failed to track step:",
+    //       error.response.status,
+    //       error.response.statusText
+    //     );
+    //   } else if (error.request) {
+
+    //     console.error("No response received from server:", error.request);
+    //   } else {
+
+    //     console.error("Error sending tracking data:", error.message);
+    //   }
+    // });
+  }, [pathname, pageTitle]);
 
   return (
     <div className="max-w-xl mx-auto p-6 bg-white shadow-md rounded-lg">
