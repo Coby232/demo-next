@@ -2,7 +2,7 @@
 "use client";
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage, FormikHelpers } from 'formik';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 interface FormValues {
     idType: string;

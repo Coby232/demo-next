@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Theme>
           {children}
         </Theme>
+        <Toaster/>
       </body>
     </html>
   );

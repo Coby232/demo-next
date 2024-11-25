@@ -1,0 +1,1 @@
+// check the prev route and based on the prev route generate the receipt

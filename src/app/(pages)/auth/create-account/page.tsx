@@ -7,6 +7,7 @@ import { doc, setDoc } from "firebase/firestore";
 import FormikContext from '@/app/components/FormikContext';
 import { useRouter } from 'next/navigation';
 import { v4 as uuidv4 } from "uuid"
+import toast from 'react-hot-toast';
 
 interface FormValues {
   email: string;
@@ -75,12 +76,12 @@ const Page: React.FC = () => {
               createdAt: new Date(),
             });
 
-            alert("Account created successfully!");
+            toast.success("Account created successfully!");
             router.push("/account-opening/overview");
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          } catch (error:any) {
-            console.error("Error creating account:", error);
-            alert(error.message);
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          } catch (error: any) {
+            toast.error(error.message); 
+            router.push("/auth/create-account");
           } finally {
             setSubmitting(false);
           }
