@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import { NextRequest } from "next/server";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  const uuid = uuidv4();
+  // const uuid = uuidv4();
 
   if (pathname === "/") {
     return NextResponse.redirect(new URL("/auth/login", request.url));
@@ -18,16 +18,16 @@ export function middleware(request: NextRequest) {
     );
   }
 
-  const response = NextResponse.next();
-  if (!request.cookies.has("tracker_id")) {
-    response.cookies.set("tracker_id", `${uuid}`);
-    response.cookies.set({
-      name: "tracker_id",
-      value: `${uuid}`,
-      path: "/",
-    });
-  }
+  // const response = NextResponse.next();
+  // if (!request.cookies.has("tracker_id")) {
+  //   response.cookies.set("tracker_id", `${uuid}`);
+  //   response.cookies.set({
+  //     name: "tracker_id",
+  //     value: `${uuid}`,
+  //     path: "/",
+  //   });
+  // }
 
-  return response;
+  // return response;
 }
 
