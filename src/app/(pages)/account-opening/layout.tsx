@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React, { useEffect } from "react";
 import Image from "next/image";
@@ -25,8 +26,8 @@ function AccountOpeningLayout({
 
   useEffect(() => {
     const trackData = {
-      tracker_id: tracker_id,
-      //   tracker_id:"950d699d-b8be-419e-ad86-f3bf4e661a08",
+      // tracker_id: tracker_id,
+      tracker_id:"950d699d-b8be-419e-ad86-f3bf4e661a08",
       step_name: pageTitle,
       isComplete: false,
     };
@@ -41,6 +42,7 @@ function AccountOpeningLayout({
       }
     );
   });
+  
   return (
     <section className='flex flex-col lg:flex-row flex-1 h-screen overflow-hidden '>
       <aside className='bg-blue-700 text-white w-full lg:w-2/5   flex flex-col items-center justify-center p-8 max-sm:p-5'>
@@ -50,7 +52,7 @@ function AccountOpeningLayout({
         <h2 className='text-xl max-sm:text-base font-medium mb-6 max-sm:mb-3'>
           Financial Auditing and Reporting
         </h2>
-        <div className="flex flex-row">
+        <div className='flex flex-row'>
           <Image
             src='/stanbic.png'
             alt='stanbic'

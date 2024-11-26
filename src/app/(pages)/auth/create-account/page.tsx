@@ -1,16 +1,23 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
-import React,{useEffect} from 'react';
-import { Formik, Field, Form, ErrorMessage, FormikHelpers } from 'formik';
-import { auth, db } from '@/firebase';
+import React, { useEffect } from "react";
+import {
+  Formik,
+  Field,
+  Form,
+  ErrorMessage,
+  FormikHelpers,
+} from "formik";
+import { auth, db } from "@/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import FormikContext from '@/app/components/FormikContext';
-import { useRouter } from 'next/navigation';
-import { v4 as uuidv4 } from "uuid"
-import toast from 'react-hot-toast';
+import FormikContext from "@/app/components/FormikContext";
+import { useRouter } from "next/navigation";
+import { v4 as uuidv4 } from "uuid";
+import toast from "react-hot-toast";
 import axios from "axios";
-import { usePathname } from 'next/navigation';
-import Image from 'next/image';
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 interface FormValues {
   email: string;
@@ -25,29 +32,37 @@ const Page: React.FC = () => {
   const userId = uuidv4();
   const pathname = usePathname();
 
-  const pageTitle = pathname.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) || '';
-  
+  const pageTitle =
+    pathname
+      .split("/")
+      .pop()
+      ?.replace(/-/g, " ")
+      .replace(/\b\w/g, (char) => char.toUpperCase()) || "";
+
   const tracker_id = document.cookie
-  .split("; ")
-  .find((row) => row.startsWith("tracker_id="))
-  ?.split("=")[1];
-  
+    .split("; ")
+    .find((row) => row.startsWith("tracker_id="))
+    ?.split("=")[1];
+
   useEffect(() => {
     const trackData = {
-      tracker_id: tracker_id,
-      // tracker_id:"950d699d-b8be-419e-ad86-f3bf4e661a08", --for testing
+      // tracker_id: tracker_id,
+      tracker_id:"950d699d-b8be-419e-ad86-f3bf4e661a08",
       step_name: pageTitle,
-      isComplete:  false,
+      isComplete: false,
     };
 
-
-    axios
-      .post("https://ef4d-154-161-165-23.ngrok-free.app/track", trackData, {
+    axios.post(
+      "https://ef4d-154-161-165-23.ngrok-free.app/track",
+      trackData,
+      {
         headers: {
           "Content-Type": "application/json",
         },
-      })})
-      
+      }
+    );
+  });
+
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-gray-50'>
       <Image

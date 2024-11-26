@@ -1,14 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
-import React, { useState,useEffect } from "react";
-import { Formik, Field, Form, ErrorMessage, FormikHelpers } from "formik";
+import React, { useState, useEffect } from "react";
+import {
+  Formik,
+  Field,
+  Form,
+  ErrorMessage,
+  FormikHelpers,
+} from "formik";
 import { auth } from "@/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { usePathname } from 'next/navigation';
-import Image from "next/image"
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 interface LoginValues {
   email: string;
@@ -16,7 +22,6 @@ interface LoginValues {
 }
 
 const LoginPage: React.FC = () => {
-
   const router = useRouter();
 
   const handleLogin = (email: string, password: string) => {
@@ -33,32 +38,39 @@ const LoginPage: React.FC = () => {
 
   const pathname = usePathname();
 
-  const pageTitle = pathname.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase()) || '';
-  
+  const pageTitle =
+    pathname
+      .split("/")
+      .pop()
+      ?.replace(/-/g, " ")
+      .replace(/\b\w/g, (char) => char.toUpperCase()) || "";
+
   const tracker_id = document.cookie
-  .split("; ")
-  .find((row) => row.startsWith("tracker_id="))
-  ?.split("=")[1];
-  
+    .split("; ")
+    .find((row) => row.startsWith("tracker_id="))
+    ?.split("=")[1];
+
   useEffect(() => {
     const trackData = {
-      tracker_id: tracker_id,
-      // tracker_id:"950d699d-b8be-419e-ad86-f3bf4e661a08", --for testing
+      // tracker_id: tracker_id,
+      tracker_id: "950d699d-b8be-419e-ad86-f3bf4e661a08",
       step_name: pageTitle,
-      isComplete:  false,
+      isComplete: false,
     };
 
-
-    axios
-      .post("https://ef4d-154-161-165-23.ngrok-free.app/track", trackData, {
+    axios.post(
+      "https://ef4d-154-161-165-23.ngrok-free.app/track",
+      trackData,
+      {
         headers: {
           "Content-Type": "application/json",
         },
-      })})
+      }
+    );
+  });
 
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-gray-50'>
-      
       <Image
         src='/businessman-and-company.png'
         alt='stanbic'
@@ -146,9 +158,8 @@ const LoginPage: React.FC = () => {
             </Form>
           )}
         </Formik>
-        
+
         <div className='mt-4 text-center'>
-          
           <p className='text-sm text-gray-600'>
             Don’t have an account?{" "}
             <a
@@ -157,12 +168,11 @@ const LoginPage: React.FC = () => {
               Register here
             </a>
           </p>
-         
         </div>
-      </div> 
+      </div>
       <small className='m-5 text-slate-400'>
-          Auditing at your footsteps
-        </small>
+        Auditing at your footsteps
+      </small>
     </div>
   );
 };

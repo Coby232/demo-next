@@ -26,7 +26,8 @@ function SelfServiceLayout({
 
   useEffect(() => {
     const trackData = {
-      tracker_id: tracker_id,
+      // tracker_id: tracker_id,
+      tracker_id: "950d699d-b8be-419e-ad86-f3bf4e661a08",
       step_name: pageTitle,
       isComplete: false,
     };
@@ -74,10 +75,8 @@ function SelfServiceLayout({
         </p>
       </aside>
 
-   
       <aside className='bg-slate-50 w-full lg:w-3/5 p-10 max-sm:pt-64 lg:p-20 overflow-y-scroll flex flex-col justify-center items-center gap-6'>
         <div className='relative flex flex-col items-center'>
-         
           <div className='relative'>
             <Image
               src='/3d2.png'
