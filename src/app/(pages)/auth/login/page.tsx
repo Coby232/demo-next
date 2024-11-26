@@ -70,7 +70,7 @@ const LoginPage: React.FC = () => {
   });
 
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen bg-gray-50'>
+    <div className='flex flex-col items-center justify-center min-h-screen bg-gray-50 max-sm:p-5'>
       <Image
         src='/businessman-and-company.png'
         alt='stanbic'
