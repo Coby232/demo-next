@@ -30,6 +30,8 @@ const BusinessAccountOpeningLayout = ({
     .find((row) => row.startsWith("tracker_id="))
     ?.split("=")[1];
 
+    const trackerID = `${pathname.indexOf("tracker_id")}`
+
   useEffect(() => {
     const trackData = {
       // tracker_id: tracker_id,

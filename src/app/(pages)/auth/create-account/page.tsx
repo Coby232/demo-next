@@ -68,9 +68,9 @@ const Page: React.FC = () => {
       <Image
         src='/businessman-and-company.png'
         alt='stanbic'
-        width={200}
-        height={200}
-        className='-mt-7'
+        width={150}
+        height={150}
+        className='-mt-2 max-sm:-mt-20'
       />
       <div className='w-full max-w-md p-8 bg-white shadow-md rounded-lg'>
         <h1 className='text-2xl font-semibold text-center mb-6 text-indigo-600'>
@@ -286,7 +286,7 @@ const Page: React.FC = () => {
           </p>
         </div>
       </div>
-      <small className='m-5 text-slate-400'>
+      <small className='m-2 max-sm:m-5 text-slate-400'>
         Auditing at your footsteps
       </small>
     </div>
