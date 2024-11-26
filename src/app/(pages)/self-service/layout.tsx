@@ -75,7 +75,7 @@ function SelfServiceLayout({
         </p>
       </aside>
 
-      <aside className='bg-slate-50 w-full lg:w-3/5 p-10 max-sm:pt-64 lg:p-20 overflow-y-scroll flex flex-col justify-center items-center gap-6'>
+      <aside className='bg-slate-50 w-full lg:w-3/5 p-10 max-sm:pt-[26.5em] pb-96 lg:p-20 overflow-y-scroll flex flex-col justify-center items-center gap-3'>
         <div className='relative flex flex-col items-center'>
           <div className='relative'>
             <Image
