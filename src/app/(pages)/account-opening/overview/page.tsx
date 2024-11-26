@@ -30,27 +30,38 @@ const overview = [
 function Page() {
 
     return (
-        <>
-            <h3 className="text-2xl font-semibold mb-6 text-blue-700">Services</h3>
-            <ul className="space-y-4">
-                {overview.map((item, index) => (
-                    <li
-                        key={index}
-                        className="bg-white w-full border rounded-xl p-4 shadow hover:shadow-lg transition-shadow duration-300"
-                    >
-                        <h4 className="text-lg font-semibold text-blue-600 mb-2" >{item.title}</h4>
-                        <p className="text-gray-600 mb-3">{item.description}</p>
-                        <Link
-                            href={item.link}
-                            className="text-blue-500 font-medium hover:underline"
-                        >
-                            Read more
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-
-        </>
+      <>
+        <h3 className='text-2xl font-semibold mb-6 text-blue-700'>
+          Services
+        </h3>
+        <ul className='space-y-4 flex flex-col justify-between'>
+          {overview.map((item, index) => (
+            <li
+              key={index}
+              className='bg-white w-full border rounded-xl p-4 shadow hover:shadow-lg transition-shadow duration-300'>
+              <h4 className='text-lg font-semibold text-blue-600 mb-2'>
+                {item.title}
+              </h4>
+              <p className='text-gray-600 mb-3'>{item.description}</p>
+              <Link
+                href={item.link}
+                className='text-blue-500 font-medium hover:underline'>
+                Proceed
+              </Link>
+            </li>
+          ))}
+          <footer className=' flex flex-row justify-center text-slate-400 '>
+            {/* <Image
+              src='/footer-indicator.webp'
+              alt='stanbic'
+              width={100}
+              height={100}
+              className='mt-12ew '
+            /> */}
+           <small className='mt-10'>Copyright © 2024</small> 
+          </footer>
+        </ul>
+      </>
     );
 }
 

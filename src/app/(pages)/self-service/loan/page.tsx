@@ -2,6 +2,7 @@
 "use client";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useRouter } from "next/navigation";
 
 const LoanPage = () => {
   const initialValues = {
@@ -16,18 +17,24 @@ const LoanPage = () => {
     interestRate: Yup.number().required('Interest rate is required').positive('Rate must be positive'),
   });
 
-  const onSubmit = (values: any) => {
-    alert('Loan request submitted: ' + JSON.stringify(values, null, 2));
+const router = useRouter();
+  const handleSubmit = (serviceDetails: any) => {
+    localStorage.setItem("prevRoute", "/self-service/loan");
+    localStorage.setItem(
+      "receiptDetails",
+      JSON.stringify(serviceDetails)
+    );
+    router.push("/self-service/receipt");
   };
 
   return (
-    <div className="max-w-xl mx-auto p-8 bg-white shadow-lg rounded-lg">
+    <div className="max-w-xl min-w-full mx-auto p-8 bg-white shadow-lg rounded-lg">
       <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6">Apply for a Loan</h1>
 
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
-        onSubmit={onSubmit}
+        onSubmit={handleSubmit}
       >
         <Form>
           <div className="space-y-6">

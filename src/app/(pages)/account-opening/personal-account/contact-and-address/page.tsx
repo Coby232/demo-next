@@ -56,7 +56,6 @@ const Page: React.FC = () => {
             >
                 {({ values, handleSubmit, isSubmitting, setFieldValue }) => (
                     <Form onSubmit={handleSubmit} className="space-y-6">
-                        <h2>Contact and Address</h2>
                         <div>
                             <label htmlFor="residentialAddress" className="block text-sm font-medium text-gray-700">
                                 Residential Address
