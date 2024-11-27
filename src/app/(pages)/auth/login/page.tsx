@@ -15,6 +15,8 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { error } from "console";
+import TelemetryScriptLoader from "@/app/components/Telemetry";
 
 interface LoginValues {
   email: string;
@@ -50,36 +52,61 @@ const LoginPage: React.FC = () => {
     .find((row) => row.startsWith("tracker_id="))
     ?.split("=")[1];
 
-  useEffect(() => {
-    const trackData = {
-      // tracker_id: tracker_id,
-      tracker_id: "950d699d-b8be-419e-ad86-f3bf4e661a08",
-      step_name: pageTitle,
-      isComplete: false,
-    };
+  // const trackerID = `${pathname.split("tracker_id=")[1]}`
+  // alert(tracker_id)
 
-    axios.post(
-      "https://ef4d-154-161-165-23.ngrok-free.app/track",
-      trackData,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-  });
+  // useEffect(() => {
+  //   const trackData = {
+  //     tracker_id: tracker_id,
+  //     // tracker_id: trackerID,
+  //     step_name: pageTitle,
+  //     isComplete: false,
+  //   };
+
+
+  //   // const response = async () => await fetch("https://8798-154-161-43-193.ngrok-free.app/track", {
+  //   //   method: "POST",
+  //   //   headers: { "Content-Type": "application/json" },
+  //   //   body: JSON.stringify(trackData),
+  //   // })
+
+  //   // const data = response;
+  //   // if(!response.ok){
+  //   //   throw new Error(`HTTP Error ${response.status}`)
+  //   // }
+
+
+  //   axios.post(
+  //     "https://8798-154-161-43-193.ngrok-free.app/track",
+  //     trackData,
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     }
+  //   ).catch(err => {
+  //     if (err.response) {
+  //       console.log(`Error: ${err.response}`)
+  //     } else if (err.request) {
+  //       console.log(`Error: ${err.request}`)
+  //     } else {
+  //       console.log(`Error: ${err}`)
+  //     }
+  // });
+  // });
 
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-gray-50 max-sm:p-5'>
+      <TelemetryScriptLoader/>
       <Image
         src='/businessman-and-company.png'
         alt='stanbic'
         width={150}
         height={150}
-        className='-mt-2 max-sm:-mt-20'
+        className='-mt-2 max-sm:-mt-5'
       />
 
-      <div className='w-full max-w-md p-8 bg-white shadow-md rounded-lg'>
+      <div className='w-full max-w-md p-8 bg-white shadow-md rounded-lg dark:border-slate-700'>
         <h2 className='text-2xl font-bold text-center mb-6 text-indigo-600'>
           Continue With Us
         </h2>

@@ -44,24 +44,26 @@ function Page() {
        .find((row) => row.startsWith("tracker_id="))
        ?.split("=")[1];
 
-     useEffect(() => {
-       const trackData = {
-         // tracker_id: tracker_id,
-         tracker_id: "950d699d-b8be-419e-ad86-f3bf4e661a08",
-         step_name: pageTitle,
-         isComplete: false,
-       };
+       const trackerID = `${pathname.split("tracker_id=")}`
 
-       axios.post(
-         "https://ef4d-154-161-165-23.ngrok-free.app/track",
-         trackData,
-         {
-           headers: {
-             "Content-Type": "application/json",
-           },
-         }
-       );
-     });
+    //    useEffect(() => {
+    //      const trackData = {
+    //        // tracker_id: tracker_id,
+    //        tracker_id: trackerID,
+    //        step_name: pageTitle,
+    //        isComplete: false,
+    //      };
+
+    //    axios.post(
+    //      "https://8798-154-161-43-193.ngrok-free.app/track",
+    //      trackData,
+    //      {
+    //        headers: {
+    //          "Content-Type": "application/json",
+    //        },
+    //      }
+    //    );
+    //  });
 
     return (
       <>
