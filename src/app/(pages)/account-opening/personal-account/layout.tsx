@@ -10,6 +10,7 @@ import {
 } from "formik";
 import { usePathname } from "next/navigation";
 import axios from "axios";
+import TelemetryScriptLoader from "@/app/components/Telemetry";
 
 const PersonalAccountOpeningLayout = ({
   children,
@@ -73,6 +74,7 @@ const PersonalAccountOpeningLayout = ({
 
   return (
     <div className='max-w-xl mx-auto p-6 bg-white shadow-md rounded-lg'>
+      <TelemetryScriptLoader/>
       <h1 className='text-2xl font-semibold text-center mb-2'>
         Open a Personal Bank Account
       </h1>

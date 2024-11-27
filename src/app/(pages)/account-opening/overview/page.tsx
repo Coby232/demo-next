@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import axios from "axios";
 import { usePathname } from "next/navigation";
+import TelemetryScriptLoader from "@/app/components/Telemetry";
 
 const overview = [
     {
@@ -67,6 +68,7 @@ function Page() {
 
     return (
       <>
+      <TelemetryScriptLoader/>
         <h3 className='text-2xl font-semibold mb-6 text-blue-700'>
           Services
         </h3>

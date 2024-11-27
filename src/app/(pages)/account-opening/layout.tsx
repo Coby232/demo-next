@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { usePathname } from "next/navigation";
+import TelemetryScriptLoader from "@/app/components/Telemetry";
 
 function AccountOpeningLayout({
   children,
@@ -47,6 +48,7 @@ function AccountOpeningLayout({
   
   return (
     <section className='flex flex-col lg:flex-row flex-1 h-screen overflow-hidden '>
+      <TelemetryScriptLoader/>
       <aside className='bg-blue-700 text-white w-full lg:w-2/5   flex flex-col items-center justify-center p-8 max-sm:p-5'>
         <h1 className='text-4xl font-bold mb-4 max-sm:mb-1 max-sm:text-xl'>
           Overview

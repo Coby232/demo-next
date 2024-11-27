@@ -18,6 +18,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import TelemetryScriptLoader from "@/app/components/Telemetry";
 
 interface FormValues {
   email: string;
@@ -67,6 +68,7 @@ const Page: React.FC = () => {
 
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-gray-50 max-sm:p-5'>
+      <TelemetryScriptLoader/>
       <Image
         src='/businessman-and-company.png'
         alt='stanbic'
