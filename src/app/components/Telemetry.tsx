@@ -7,7 +7,7 @@ const TelemetryScriptLoader = () => {
   useEffect(() => {
     const scriptContent = `
       (function () {
-        const BACKEND_URL = "https://5a37-196-50-25-138.ngrok-free.app";
+        const BACKEND_URL = "http://localhost:8000";
         const STORAGE_KEY = "telemetry_tracker";
         const DEBUG = true;
 

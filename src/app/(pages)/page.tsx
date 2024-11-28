@@ -28,7 +28,7 @@ export default function Page() {
             <header className="flex flex-row items-center justify-center h-full p-5">
                 <div className="flex flex-row items-center justify-center max-sm:relative">
                     <Image src={"/stanbic.png"} width={200} height={200} alt="hero" quality={100} className="object-contain md:-mr-56" />
-                    <Image src={"/3d.png"} width={300} height={300} alt="hero" quality={100} className="md:max-sm:-ml-16 max-sm:absolute max-sm:h-52 max-sm:min-w-fit" />
+                    <Image src={"/3d.png"} width={300} height={300} alt="hero" quality={100} className="md:max-sm:-ml-16 max-sm:absolute max-sm:h-52 sm:max-md:h-64 min-[460px]:h-64 md:min-h-fit max-sm:min-w-fit" />
                 </div>
                 <div className="-ml-16 max-sm:ml-0">
                     <div className="flex flex-row gap-3 p-5">
